@@ -8,6 +8,8 @@ Pomodoro timer for the fish shell
 * (Optional) A desktop notifier
   - OSX: [terminal-notifier](https://formulae.brew.sh/formula/terminal-notifier)
   - Ubuntu / Debian: [notify-send](https://launchpad.net/ubuntu/+source/libnotify)
+* (Optional) An ogg sound player for alarm
+  - [vorbis-tools](https://packages.debian.org/sid/sound/vorbis-tools)
 
 ## General usage
 
@@ -25,6 +27,7 @@ Start options:
   -d --duration <minutes> Duration of timer (default: 25)
   -m --message  <message> Message to display on completion (default: 'Time is up!')
   -n --notify-terminal    Notify on terminal instead of desktop on done
+  -a --alarm    <file>    Alarm at the end (default: '/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga')
   -v --verbose            Notify on terminal every minute
   -h --help               Display this help message
 ```

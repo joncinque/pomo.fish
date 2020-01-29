@@ -10,9 +10,11 @@
 
 set title_message "pomo.fish timer"
 set message "Time is up!"
+set alarm "/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
 set duration 25
 set notify 1
 set verbose 0
+set testing 0
 
 set stopped 0
 set fish_dir "$HOME/.local/share/fish"
@@ -32,7 +34,7 @@ end
 function start_timer -d "Start a new timer"
   set duration_already_set 0
   set message_already_set 0
-  set notify_already_set 0
+  set alarm_already_set 0
 
   while set -q argv[1]
     set option $argv[1]
@@ -59,11 +61,15 @@ function start_timer -d "Start a new timer"
         set --erase argv[1]
         set message $argv[1]
         set message_already_set 1
-      case -n --notify-terminal
-        check_variable_set "$notify_already_set" "Notify" "$notify"
+      case -a --alarm
+        check_variable_set "$alarm_already_set" "Alarm" "$alarm"
         set --erase argv[1]
+        set alarm $argv[1]
+        set alarm_already_set 1
+      case -n --notify-terminal
         set notify 0
-        set notify_already_set 1
+      case -t --test
+        set testing 1
       case -v --verbose
         set verbose 1
       case -h --help
@@ -98,7 +104,11 @@ function start_timer -d "Start a new timer"
       echo "$i minutes left"
     end
     printf "%s" $i > $pomo_file
-    sleep 60
+    if test $testing = '1'
+      sleep 1
+    else
+      sleep 60
+    end
     if ! test -e $pomo_file
       if test $verbose = '1'
         printf "Timer stopped with %s minutes left\n" (math $i - 1)
@@ -121,6 +131,9 @@ function start_timer -d "Start a new timer"
     else
       printf "%s\n" "$message"
     end
+    if test $alarm != '0'
+      ogg123 $alarm 2> /dev/null
+    end
     if test -e $pomo_file
       rm $pomo_file
     end
@@ -140,6 +153,8 @@ function usage -d "Show pomo.fish timer usage"
   echo "  -d --duration <minutes> Duration of timer (default: 25)"
   echo "  -m --message  <message> Message to display on completion (default: 'Time is up!')"
   echo "  -n --notify-terminal    Notify on terminal instead of desktop on done"
+  echo "  -a --alarm    <file>    Alarm at the end (default: '/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga')"
+  echo "  -t --test               Enable testing mode, which sets a minute to 1 second"
   echo "  -v --verbose            Notify on terminal every minute"
   echo "  -h --help               Display this help message"
   exit 1
