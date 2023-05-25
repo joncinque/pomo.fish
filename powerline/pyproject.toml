@@ -3,7 +3,7 @@ requires = ["setuptools>=64.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "powerline-pomo-fish"
+name = "pomo-fish-powerline"
 version = "0.1.0"
 authors = [
   { name="Jon Cinque", email="me@jonc.dev" },
