@@ -8,6 +8,7 @@ Pomodoro timer for the fish shell
 * (Optional) A desktop notifier
   - OSX: [terminal-notifier](https://formulae.brew.sh/formula/terminal-notifier)
   - Ubuntu / Debian: [notify-send](https://launchpad.net/ubuntu/+source/libnotify)
+  - Arch: [libnotify](https://archlinux.org/packages/extra/x86_64/libnotify/)
 * (Optional) An ogg sound player for alarm
   - [vorbis-tools](https://packages.debian.org/sid/sound/vorbis-tools)
 
