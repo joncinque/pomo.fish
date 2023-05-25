@@ -1,4 +1,5 @@
 # pomo.fish
+
 Pomodoro timer for the fish shell
 
 ## Requirements
@@ -33,7 +34,7 @@ Start options:
   -h --help               Display this help message
 ```
 
-# Examples
+## Examples
 
 NOTE: When starting a timer, you will likely want it to run in the background
 to free up the command line.
@@ -67,3 +68,14 @@ Check minutes left in a running session
 ```fish
 pomo.fish check
 ```
+
+# Powerline Integration
+
+If you use [Powerline](https://github.com/powerline/powerline) for any of your
+tools, there exists a `pomo.fish` segment at the `pomo-fish-powerline` package,
+which you can use to keep track of a running Pomo.fish timer, directly in your
+terminal!
+
+This way, you can keep everything at your fingertips, directly in terminal.
+
+You can see more at the [repo](https://github.com/pomo.fish/powerline).
