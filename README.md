@@ -11,7 +11,8 @@ Pomodoro timer for the fish shell
   - Ubuntu / Debian: [notify-send](https://launchpad.net/ubuntu/+source/libnotify)
   - Arch: [libnotify](https://archlinux.org/packages/extra/x86_64/libnotify/)
 * (Optional) An ogg sound player for alarm
-  - [vorbis-tools](https://packages.debian.org/sid/sound/vorbis-tools)
+  - Ubuntu / Debian: [vorbis-tools](https://packages.debian.org/sid/sound/vorbis-tools)
+  - Arch: [vorbis-tools](https://archlinux.org/packages/extra/x86_64/vorbis-tools/)
 
 ## General usage
 
@@ -76,6 +77,12 @@ tools, there exists a `pomo.fish` segment at the `pomo-fish-powerline` package,
 which you can use to keep track of a running Pomo.fish timer, directly in your
 terminal!
 
+Here's an example segment, placed to the right:
+
+```
+ 🍅20m  0.5 0.7 0.7  2023-05-29  17:25 
+```
+
 This way, you can keep everything at your fingertips, directly in terminal.
 
-You can see more at the [repo](https://github.com/pomo.fish/powerline).
+You can see more at the [repo](https://github.com/joncinque/pomo.fish/tree/master/powerline).
