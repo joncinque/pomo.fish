@@ -131,7 +131,7 @@ function start_timer -d "Start a new timer"
     else
       printf "%s\n" "$message"
     end
-    if test $alarm != '0' -a ! test (which ogg123)
+    if test $alarm != '0' -a (which ogg123)
       ogg123 $alarm 2> /dev/null
     end
     if test -e $pomo_file
